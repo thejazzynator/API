@@ -13,8 +13,8 @@ namespace API.Controllers
     {
         public List<Artist> artist = new List<Artist>()
         {
-            new Artist("Chelsea Wolfe", 37, "Hiss Spun", "Spun", 1),
-            new Artist("Emma Ruth Rundle", 38, "Dark Horse", "Light Song", 2)
+            new Artist(1, "Chelsea Wolfe", 37, "Hiss Spun", "Spun"),
+            new Artist(2, "Emma Ruth Rundle", 38, "Dark Horse", "Light Song")
         };
 
         [HttpGet]
@@ -51,7 +51,14 @@ namespace API.Controllers
             return artist;
         }
 
-        //[HttpDelete]
+        [HttpDelete]
+
+        public List<Artist> Delete(int id)
+        {
+            Artist value = artist.Find(f => f.Id == id);
+            artist.Remove(value);
+            return artist;
+        }
 
     }
 }

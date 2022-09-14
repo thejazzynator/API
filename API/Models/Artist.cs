@@ -14,13 +14,14 @@ namespace API
 
 
 
-        public Artist(string singer, int age, string album, string song, int id)
+        public Artist(int id, string singer, int age, string album, string song)
         {
+            Id = id;
             Singer = singer;
             Age = age;
             Album = album;
             Song = song;
-            Id = id;
+           
         }
 
 
