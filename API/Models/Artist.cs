@@ -1,3 +1,4 @@
+using API.Models;
 using System;
 using System.Collections.Generic;
 
@@ -7,25 +8,30 @@ namespace API
     {
         public string Singer { get; set; }
         public int Age { get; set; }
-        //public List<string> Albums { get; set; }
-        public string Album { get; set; }
         public string Song { get; set; }
         public int Id { get; set; }
+        public string Location { get; set; }
+        public List<Albums> Album { get; set; }
 
-
-
-        public Artist(int id, string singer, int age, string album, string song)
+        public Artist(int id, string singer, int age, string song, string location)
         {
             Id = id;
             Singer = singer;
             Age = age;
-            Album = album;
             Song = song;
+            Location = location;
+
+            Album = new List<Albums>()
+            {
+                new Albums
+                {
+                    AlbumOne = "Hiss Spun",
+                    AlbumTwo = "Pain Is Beauty"
+                }
+            };
            
         }
-
-
-        //Artist happy = new Artist(); //instead of instantiating the class, use "this" keyword
+        
     }
 
 }

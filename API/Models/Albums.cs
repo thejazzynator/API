@@ -7,6 +7,7 @@ namespace API.Models
 {
     public class Albums
     {
-
+        public string AlbumOne { get; set; }
+        public string AlbumTwo  { get; set; }
     }
 }

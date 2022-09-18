@@ -13,32 +13,32 @@ namespace API.Controllers
     {
         public List<Artist> artist = new List<Artist>()
         {
-            new Artist(1, "Chelsea Wolfe", 37, "Hiss Spun", "Spun"),
-            new Artist(2, "Emma Ruth Rundle", 38, "Dark Horse", "Light Song")
+            new Artist(1, "Chelsea Wolfe", 37, "Spun", "Atlanta")
         };
 
         [HttpGet]
-        public List<Artist> Get()
+        public List<Artist> GetArtistDetails()
         {
             return artist;
         }
 
         [HttpGet("{id}", Name = "Get")]
-        public Artist Get(int id)
+        public Artist GetArtistByID(int id)
         {
             Artist value = artist.Find(f => f.Id == id);
             return value;
         }
 
+
         [HttpPost]
-        public List<Artist> Post([FromBody] Artist value)
+        public List<Artist> AddArtist([FromBody] Artist value)
         {
             artist.Add(value);
             return artist;
         }
 
         [HttpPut("{id}")]
-        public List<Artist> Put(int id, [FromBody] Artist value)
+        public List<Artist> UpdateArist(int id, [FromBody] Artist value)
         {
             Artist updatedValue = artist.Find(x => x.Id == id);
             int index = artist.IndexOf(updatedValue);
@@ -51,9 +51,9 @@ namespace API.Controllers
             return artist;
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
 
-        public List<Artist> Delete(int id)
+        public List<Artist> DeleteArtist(int id)
         {
             Artist value = artist.Find(f => f.Id == id);
             artist.Remove(value);
