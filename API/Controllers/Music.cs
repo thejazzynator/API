@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using API.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,6 @@ namespace API.Controllers
             ChelseaWolfe value = artist.Find(f => f.Id == id);
             return value;
         }
-
 
         [HttpPost]
         public List<ChelseaWolfe> AddArtist([FromBody] ChelseaWolfe value)
