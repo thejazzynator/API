@@ -11,36 +11,37 @@ namespace API.Controllers
     [Route("[controller]")]
     public class Music : ControllerBase
     {
-        public List<Artist> artist = new List<Artist>()
+        public List<ChelseaWolfe> artist = new List<ChelseaWolfe>()
         {
-            new Artist(1, "Chelsea Wolfe", 37, "Spun", "Atlanta")
+            new ChelseaWolfe(1, "Chelsea Wolfe", 37, "Spun", "Atlanta"),
+            new ChelseaWolfe(2, "Chelsea Wolfe and Converge", 37, "Flower Moon", "Los Angeles")
         };
 
         [HttpGet]
-        public List<Artist> GetArtistDetails()
+        public List<ChelseaWolfe> GetArtistDetails()
         {
             return artist;
         }
 
         [HttpGet("{id}", Name = "Get")]
-        public Artist GetArtistByID(int id)
+        public ChelseaWolfe GetArtistByID(int id)
         {
-            Artist value = artist.Find(f => f.Id == id);
+            ChelseaWolfe value = artist.Find(f => f.Id == id);
             return value;
         }
 
 
         [HttpPost]
-        public List<Artist> AddArtist([FromBody] Artist value)
+        public List<ChelseaWolfe> AddArtist([FromBody] ChelseaWolfe value)
         {
             artist.Add(value);
             return artist;
         }
 
         [HttpPut("{id}")]
-        public List<Artist> UpdateArist(int id, [FromBody] Artist value)
+        public List<ChelseaWolfe> UpdateArist(int id, [FromBody] ChelseaWolfe value)
         {
-            Artist updatedValue = artist.Find(x => x.Id == id);
+            ChelseaWolfe updatedValue = artist.Find(x => x.Id == id);
             int index = artist.IndexOf(updatedValue);
 
             artist[index].Age = value.Age;
@@ -53,9 +54,9 @@ namespace API.Controllers
 
         [HttpDelete("{id}")]
 
-        public List<Artist> DeleteArtist(int id)
+        public List<ChelseaWolfe> DeleteArtist(int id)
         {
-            Artist value = artist.Find(f => f.Id == id);
+            ChelseaWolfe value = artist.Find(f => f.Id == id);
             artist.Remove(value);
             return artist;
         }
