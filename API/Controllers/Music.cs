@@ -15,14 +15,16 @@ namespace API.Controllers
         public List<Artist> artist = new List<Artist>()
         {
             new Artist(1, "Chelsea Wolfe", 37, "Spun", "Atlanta"),
-            new Artist(2, "Chelsea Wolfe and Converge", 38, "Flower Moon", "Los Angeles")
+            new Artist(2, "Chelsea Wolfe and Converge", 38, "Flower Moon", "Los Angeles"),
+            new Artist(3, "Emma Ruth Rundle", 37, "Dark Horse", "Baltimore"),
+
         };
 
-        [HttpGet]
-        public List<Artist> GetArtistDetails()
-        {
-            return artist;
-        }
+        //[HttpGet]
+        //public List<Artist> GetArtistDetails()
+        //{
+        //    return artist;
+        //}
 
         [HttpGet("{id}", Name = "Get")]
         public Artist GetArtistByID(int id)
