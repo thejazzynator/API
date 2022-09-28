@@ -20,11 +20,11 @@ namespace API.Controllers
 
         };
 
-        //[HttpGet]
-        //public List<Artist> GetArtistDetails()
-        //{
-        //    return artist;
-        //}
+        [HttpGet]
+        public List<Artist> GetArtistDetails()
+        {
+            return artist;
+        }
 
         [HttpGet("{id}", Name = "Get")]
         public Artist GetArtistByID(int id)
@@ -33,6 +33,7 @@ namespace API.Controllers
             return value;
         }
 
+        [Route("[action]/{Age}")]
         [HttpGet]
         public Artist GetArtistByAge()
         {
