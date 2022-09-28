@@ -12,36 +12,43 @@ namespace API.Controllers
     [Route("[controller]")]
     public class Music : ControllerBase
     {
-        public List<ChelseaWolfe> artist = new List<ChelseaWolfe>()
+        public List<Artist> artist = new List<Artist>()
         {
-            new ChelseaWolfe(1, "Chelsea Wolfe", 37, "Spun", "Atlanta"),
-            new ChelseaWolfe(2, "Chelsea Wolfe and Converge", 37, "Flower Moon", "Los Angeles")
+            new Artist(1, "Chelsea Wolfe", 37, "Spun", "Atlanta"),
+            new Artist(2, "Chelsea Wolfe and Converge", 38, "Flower Moon", "Los Angeles")
         };
 
         [HttpGet]
-        public List<ChelseaWolfe> GetArtistDetails()
+        public List<Artist> GetArtistDetails()
         {
             return artist;
         }
 
         [HttpGet("{id}", Name = "Get")]
-        public ChelseaWolfe GetArtistByID(int id)
+        public Artist GetArtistByID(int id)
         {
-            ChelseaWolfe value = artist.Find(f => f.Id == id);
+            Artist value = artist.Find(f => f.Id == id);
+            return value;
+        }
+
+        [HttpGet]
+        public Artist GetArtistByAge()
+        {
+            Artist value = artist.First(x => x.Age.Equals(37));
             return value;
         }
 
         [HttpPost]
-        public List<ChelseaWolfe> AddArtist([FromBody] ChelseaWolfe value)
+        public List<Artist> AddArtist([FromBody] Artist value)
         {
             artist.Add(value);
             return artist;
         }
 
         [HttpPut("{id}")]
-        public List<ChelseaWolfe> UpdateArist(int id, [FromBody] ChelseaWolfe value)
+        public List<Artist> UpdateArist(int id, [FromBody] Artist value)
         {
-            ChelseaWolfe updatedValue = artist.Find(x => x.Id == id);
+            Artist updatedValue = artist.Find(x => x.Id == id);
             int index = artist.IndexOf(updatedValue);
 
             artist[index].Age = value.Age;
@@ -54,9 +61,9 @@ namespace API.Controllers
 
         [HttpDelete("{id}")]
 
-        public List<ChelseaWolfe> DeleteArtist(int id)
+        public List<Artist> DeleteArtist(int id)
         {
-            ChelseaWolfe value = artist.Find(f => f.Id == id);
+            Artist value = artist.Find(f => f.Id == id);
             artist.Remove(value);
             return artist;
         }
