@@ -33,7 +33,7 @@ namespace API.Controllers
             return value;
         }
 
-        [Route("[action]/{Age}")]
+        [Route("[action]")]
         [HttpGet]
         public Artist GetArtistByAge()
         {
