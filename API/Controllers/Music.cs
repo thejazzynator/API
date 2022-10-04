@@ -1,6 +1,8 @@
 ﻿using API.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using MusicAPI.DataBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +13,17 @@ namespace API.Controllers
     [ApiController]
     [Route("[controller]")]
     public class Music : ControllerBase
+
     {
+
         public List<Artist> artist = new List<Artist>()
         {
-            new Artist(1, "Chelsea Wolfe", 37, "Spun", "Atlanta"),
+            new Artist(1, "Chelsea Wolfe", 3789, "Spun", "Atlanta"),
             new Artist(2, "Chelsea Wolfe and Converge", 38, "Flower Moon", "Los Angeles"),
             new Artist(3, "Emma Ruth Rundle", 37, "Dark Horse", "Baltimore"),
 
         };
+
 
         [HttpGet]
         public List<Artist> GetArtistDetails()

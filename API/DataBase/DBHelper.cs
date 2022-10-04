@@ -1,4 +1,5 @@
 ﻿using API;
+using API.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,10 @@ namespace MusicAPI.DataBase
         public DBHelper(DbContextOptions<DBHelper> options) : base(options) { }
 
         public DbSet<Artist> Artists { get; set; }
+        public DbSet<Albums> Albums { get; set; }
+
     }
 
-    
+
+
 }
