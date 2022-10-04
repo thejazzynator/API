@@ -27,7 +27,8 @@ namespace API
                 new Albums
                 {
                     AlbumOne = "Hiss Spun",
-                    AlbumTwo = "Pain Is Beauty"
+                    AlbumTwo = "Pain Is Beauty",
+                    Id = id
                 }
             };
            

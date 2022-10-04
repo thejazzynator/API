@@ -24,12 +24,26 @@ namespace API.Controllers
 
         };
 
+        private readonly DBHelper _dbContext;
+
+        public Music(DBHelper dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
 
         [HttpGet]
-        public List<Artist> GetArtistDetails()
+        public async Task<ActionResult<List<Artist>>> GetArtistDetails()
         {
-            return artist;
+            return Ok(artist);
         }
+
+        //[HttpGet]
+        //public async Task<ActionResult<List<Artist>>> GetArtistDetails()
+        //{
+        //    return Ok(await _dbContext.Artists.ToListAsync());
+        //}
+
 
         [HttpGet("{id}", Name = "Get")]
         public Artist GetArtistByID(int id)

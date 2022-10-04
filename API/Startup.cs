@@ -30,7 +30,7 @@ namespace API
             services.AddControllers();
             services.AddControllers().AddJsonOptions(options =>
                options.JsonSerializerOptions.PropertyNamingPolicy = null);
-            services.AddDbContext<DbContext>(options =>
+            services.AddDbContext<DBHelper>(options =>
         options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
