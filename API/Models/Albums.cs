@@ -14,6 +14,5 @@ namespace API.Models
         [Key]
         public string AlbumOne { get; set; }
         public string AlbumTwo  { get; set; }
-        public int Id { get; set; }
     }
 }
